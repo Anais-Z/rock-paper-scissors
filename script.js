@@ -4,8 +4,8 @@ function getComputerChoice(){
 
     //choose random value from array
     let singleChoice = choices[Math.floor(Math.random() * choices.length)]
-
-    return console.log(`Computer chose ${singleChoice}`)
+    console.log(`Computer chose ${singleChoice}`)
+    return singleChoice
 }
 
 function playRound(playerChoice, computerChoice){
@@ -24,32 +24,47 @@ function playRound(playerChoice, computerChoice){
 //evaluates if player chose rock
 function playerRock(computerChoice){
     if(computerChoice === "scissors"){
-        return console.log("You Win")
+        return alert("You Win")
     }else if(computerChoice === "paper"){
-        return console.log("You Lose")
+        return alert("You Lose")
     }else{
-        return console.log("It's a TIe")
+        return alert("It's a TIe")
     }
 }
 
 //evaluates if player chose paper
 function playerPaper(computerChoice){
     if(computerChoice === "rock"){
-        return console.log("You Win")
+        return alert("You Win")
     }else if(computerChoice === "scissors"){
-        return console.log("You Lose")
+        return alert("You Lose")
     }else{
-        return console.log("It's a TIe")
+        return alert("It's a TIe")
     }
 }
 
 //evaluates if player chose scissors
 function playerScissors(computerChoice){
     if(computerChoice === "paper"){
-        return console.log("You Win")
+        return alert("You Win")
     }else if(computerChoice === "rock"){
-        return console.log("You Lose")
+        return alert("You Lose")
     }else{
-        return console.log("It's a TIe")
+        return alert("It's a TIe")
     }
 }
+
+function game(){
+
+    for(let i = 0; i < 5; i++){
+        const playerSelection = prompt("Choose rock, paper or scissors", "rock")
+
+        console.log(`You chose ${playerSelection}`)
+        const computerSelection = getComputerChoice()
+        
+        playRound(playerSelection.toLowerCase(),computerSelection)
+    }
+
+}
+
+game()
