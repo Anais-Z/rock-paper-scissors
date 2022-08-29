@@ -85,8 +85,6 @@ function game(e){
     let playerSelection = e.target.value;
     const computerSelection = getComputerChoice()  ;
     let current = playRound(playerSelection ,computerSelection);
-    console.log(current);
-
     if(current == 'Player Wins'){
         currentPlayerScore++;
         console.log(`Player score = ${currentPlayerScore}`);
