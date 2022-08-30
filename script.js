@@ -57,6 +57,7 @@ function playerScissors(computerChoice){
     }
 }
 
+//checks to see if a winner if one of the players reaches 5 points
 function winner(playerScore, compScore){
     
     if(playerScore === 5){
@@ -72,12 +73,14 @@ function winner(playerScore, compScore){
     
 }
 
+//creates play again button
 function createReplayButton(){
     replayButtonDiv.appendChild(replayButton)
     replayButton.addEventListener('click', restartProgram)
     
 }
 
+//restarts program when function is called
 function restartProgram(){
     window.location.reload()
 }
@@ -98,12 +101,18 @@ function game(e){
     compWeapon.textContent = computerSelection
 
     if(current == 'Player Wins'){
+
         currentPlayerScore++;
+
         console.log(`Player score = ${currentPlayerScore}`);
+
         playerScore.textContent = currentPlayerScore;
+
     } else if(current == "Computer Wins"){
+
         currentCompScore++;
        compScore.textContent = currentCompScore;
+
         console.log(`Comp score = ${currentCompScore}`);
     };
 
@@ -112,6 +121,7 @@ function game(e){
    if(status == "Finish"){
 
     buttons.forEach(button => button.disabled = true)
+
     createReplayButton()
    }
     
@@ -119,6 +129,7 @@ function game(e){
 
 
 
+//accessing elements from index.html
 const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#comp-score");
 
@@ -136,6 +147,8 @@ const groupOfButtons = document.querySelector('.the-buttons')
 buttons.forEach((button) => {;
     button.addEventListener('click', game);
 });
+
+//creating elements 
 
 const replayButton = document.createElement('button')
 replayButton.innerText = "Play Again"
