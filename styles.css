@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(3, 50, 83);
+    height: 800px;
+}
+
+#player-score, #comp-score{
+    
+    color: aliceblue;
+}
+
+main{
+    height: 700px;
+}
+
+main > h3{
+    text-align: center;
+    color: rgb(155, 255, 255);
+}
+
+.weapons{
+    color: rgb(7, 233, 249);
+    text-align: center;
+}
+
+h1{
+    color: rgb(235, 244, 244);
+    text-align: center;
+}
+
+div > h2{
+    color: yellow;
+    text-align: center;
+}
+
+
+.players{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.players > div > p{
+    font-size: 60px;
+    text-align: center;
+}
+
+.the-buttons , .replay{
+    text-align: center;
+}
+
+button{
+    background-color: rgb(3, 50, 83);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(254, 254, 254);
+    width: 120px;
+    height: 70px;
+    font-size: large;
+    margin: 15px 15px
+}
+
+button:hover{
+    background-color: rgb(0, 17, 255);
+}
+
+.replay-button:hover{
+    background-color: rgb(2, 8, 47);
+}
+
+footer > h3{
+    text-align: center;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+
+.weapon-context{
+   
+}
+

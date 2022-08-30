@@ -60,11 +60,11 @@ function playerScissors(computerChoice){
 function winner(playerScore, compScore){
     
     if(playerScore === 5){
-        result.textContent = "Player Wins"
+        result.textContent = "Player Wins The Game"
         return "Finish"
 
     }else if (compScore === 5){
-        result.textContent = "Computer Wins"
+        result.textContent = "Computer Wins The Game"
         return "Finish"
     }
 
@@ -73,8 +73,9 @@ function winner(playerScore, compScore){
 }
 
 function createReplayButton(){
-    groupOfButtons.appendChild(replayButton)
+    replayButtonDiv.appendChild(replayButton)
     replayButton.addEventListener('click', restartProgram)
+    
 }
 
 function restartProgram(){
@@ -85,6 +86,17 @@ function game(e){
     let playerSelection = e.target.value;
     const computerSelection = getComputerChoice()  ;
     let current = playRound(playerSelection ,computerSelection);
+
+    if(current === 'Tie'){
+        result.textContent = `${current}` 
+    }else{
+        result.textContent = `${current} This Round`
+    }
+     
+
+    playerWeapon.textContent = playerSelection
+    compWeapon.textContent = computerSelection
+
     if(current == 'Player Wins'){
         currentPlayerScore++;
         console.log(`Player score = ${currentPlayerScore}`);
@@ -98,6 +110,7 @@ function game(e){
    let status =  winner(currentPlayerScore, currentCompScore)
 
    if(status == "Finish"){
+
     buttons.forEach(button => button.disabled = true)
     createReplayButton()
    }
@@ -110,6 +123,7 @@ const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#comp-score");
 
 const result = document.querySelector('.result');
+result.style.height = '27.5px'
 
 let currentPlayerScore = 0;
 let currentCompScore = 0;
@@ -125,3 +139,28 @@ buttons.forEach((button) => {;
 
 const replayButton = document.createElement('button')
 replayButton.innerText = "Play Again"
+replayButton.classList.add('replay-button')
+
+
+const main = document.querySelector('.main')
+
+const replayButtonDiv = document.createElement('div')
+replayButtonDiv.classList.add('replay')
+main.appendChild(replayButtonDiv)
+
+const playerBlock = document.querySelector('.player-role')
+const compBlock = document.querySelector('.comp-role')
+
+const playerWeapon = document.createElement('p')
+const compWeapon = document.createElement('p')
+
+playerBlock.appendChild(playerWeapon)
+compBlock.appendChild(compWeapon)
+
+playerWeapon.style.color = "lightblue"
+playerWeapon.style.fontSize = '25px'
+playerWeapon.style.height = '29.5px'
+
+compWeapon.style.color = "lightblue"
+compWeapon.style.fontSize = '25px'
+compWeapon.style.height = '29.5px'
